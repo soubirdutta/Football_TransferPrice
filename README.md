@@ -7,35 +7,35 @@ Can a football player's value be deemed to be accurate/inflated/under-valued giv
 
 ![](images/value_distribution.jpg)
 
-<p>There were clear correlations between transfer price of a player with some of the player's features: </p>
+<p>There were clear correlations between transfer price of a player with some of hiss features: </p>
 
-<p><b>1. AGE - younger players are deemed more valuable, suggesting a greater emphasis on potential v/s experience:</b></p>
+<p><b>1. AGE</b> - younger players are deemed more valuable, suggesting a greater emphasis on potential v/s experience:</p>
 
 ![](images/age_value.jpg)
 
-<p><b>2. PLAYING POSITION - attacking players/goalscorers have a higher value attached to them:</b></p>
+<p><b>2. PLAYING POSITION</b> - attacking players/goalscorers have a higher value attached to them:</p>
 
 ![](images/position_value.jpg)
 
-<p><b>3. LEAGUE - players in England's Premier League attract much higher prices than other leagues in Europe:</b></p>
+<p><b>3. LEAGUE</b> - players in England's Premier League attracted much higher prices than other leagues in Europe:</p>
 
 ![](images/league_value.jpg)
 
-<p><b>4. CONTRACT YEARS REMAINING - player's coming to the end of their existing contracts command lesser price than others: </b></p>
+<p><b>4. CONTRACT YEARS REMAINING</b> - player's coming to the end of their existing contracts command lesser price than others:</p>
 
 ![](images/contractyears_value.jpg)
 
-<p><b>5. GOAL SCORING ABILITY -  Irrespective of whether a player was classed as an attacker, midfielder, or defender, the ability to score goals increased his transfer price:</b></p>
+<p><b>5. GOAL SCORING ABILITY</b> -  irrespective of whether a player was classed as an attacker, midfielder, or defender, the ability to score goals increased his transfer price:</p>
 
-<p>Goals + Assists per 90 minutes among ATTACKERS</p>
+<p><i>Goals + Assists per 90 minutes among ATTACKERS:</i></p>
 
 ![](images/goals_value_attacker.jpg)
 
-<p>Goals + Assists per 90 minutes among MIDFIELDERS (there were just 6 midfielders with a goals+assist rate of > 0.8 which explains the skew below)</p>
+<p><i>Goals + Assists per 90 minutes among MIDFIELDERS (there were just 6 midfielders with a goals+assist rate of > 0.8 which explains the skew below):</i></p>
 
 ![](images/goals_value_midfielder.jpg)
 
-<p>Goals + Assists per 90 minutes among DEFENDERS</p>
+<p><i>Goals + Assists per 90 minutes among DEFENDERS:</i></p>
 
 ![](images/goals_value_defender.jpg)
 
@@ -43,23 +43,25 @@ Can a football player's value be deemed to be accurate/inflated/under-valued giv
 
 ![](images/strong_correlation.jpg)
 
+<p></p>
+
 <p>...while some other factors had much lower correlation with transfer price:</p>
 
 ![](images/no_correlation.jpg)
 
 <p><b>PREDICTIVE MODEL</b></p>
 
-<p>Columns with little to no correlation with the transfer price of a player (such as his name and birth nation) were dropped from the dataset. A player's club was also initially dropped but including it led to a reduction in the RMSE of the results. This is possibly due to players from more famous clubs commanding higher values, all other things being equal. As a result, the 98 different clubs in the dataset were bucketed into 4 tiers, based on their mean transfer value (though this probably leads to some leakage). </p>
+<p>Columns with little to no correlation with the transfer price of a player (such as his name and birth nation) were dropped from the dataset. A player's club name was also initially dropped but including it led to a reduction in the RMSE of the results. This is possibly due to players from more famous clubs commanding higher values, all other things being equal. As a result, the 98 different clubs in the dataset were bucketed into 4 tiers, based on their mean transfer value (though this probably leads to some leakage). </p>
 
 <p>Data was standardized using MinMax Scaler as there were some large values in some coloumns. A linear regression model from Python's SciKit Learn library, using a 60-40 test-train split, was then run on the dataset. A plot of actual vs predicted values showed linear indications, suggesting that transfer values can be approximated using a player's playing stats:</p>
 
 ![](images/accuracy_graph.jpg)
 
-<p>A plot of Test Values - Predicted Values also showed most values to be centred around a minimum level which is a good result:</p>
+<p>A plot of Test Values minus Predicted Values also showed most values to be centred around a minimum level which is a good result:</p>
 
 ![](images/accuracy_plot.jpg)
 
-<p>That said, the RMSE value was not satisfactory and some more feature engineering and column filtering is required to achieve a more accurate model. The explained variance score of 62% can be improved upon too. Specifically, the model did not perform well in predicting transfer values for high-value players as the predicted values were a fair bit different from the actuals, possibly due to the intangible factors mentioned earlier. However, for the most part transfer fees of a player using his playing stats can be predicted to some degree.</p>
+<p>That said, the RMSE value was not satisfactory and some more feature engineering and column filtering is required to achieve a more accurate model. The explained variance score of 62% can be improved upon too. Specifically, the model did not perform well in predicting transfer prices for high-value players, possibly due to the intangible factors mentioned earlier. However, for the most part transfer fees of a player using his playing stats can be predicted to some degree.</p>
 
 
 
