@@ -28,12 +28,15 @@ Can a football player's value be deemed to be accurate/inflated/under-valued giv
 <p><b>5. GOAL SCORING ABILITY -  Irrespective of whether a player was classed as an attacker, midfielder, or defender, the ability to score goals increased his transfer price:</b></p>
 
 <p>Goals + Assists per 90 minutes among ATTACKERS</p>
+
 ![](images/goals_value_attacker.jpg)
 
 <p>Goals + Assists per 90 minutes among MIDFIELDERS (there were just 6 midfielders with a goals+assist rate of > 0.8 which explains the skew below)</p>
+
 ![](images/goals_value_midfielder.jpg)
 
 <p>Goals + Assists per 90 minutes among DEFENDERS</p>
+
 ![](images/goals_value_defender.jpg)
 
 <p>There were over 140 stats describing a player and some of them were highly correlated with his transfer price. Here are the features with the strongest correlation (Pearson):</p>
